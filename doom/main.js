@@ -118,7 +118,7 @@ WebAssembly.instantiateStreaming(fetch("doom.wasm"), importObject).then(
 
         /*input handling*/
         const doomKeyCode = (event) => {
-            /*switch (event.key.toLowerCase()) {
+            switch (event.key.toLowerCase()) {
                 case "e":
                     return KEYS.ARROW_UP
                 case "a":
@@ -127,7 +127,7 @@ WebAssembly.instantiateStreaming(fetch("doom.wasm"), importObject).then(
                     return KEYS.ARROW_RIGHT
                 case "s":
                     return KEYS.ARROW_DOWN
-            }*/
+            }
 
             switch (event.keyCode) {
                 case 8:
@@ -165,7 +165,7 @@ WebAssembly.instantiateStreaming(fetch("doom.wasm"), importObject).then(
         canvas.addEventListener(
             "keydown",
             (event) => {
-                keyDown(doomKeyCode)
+                keyDown(doomKeyCode(event))
                 event.preventDefault()
             },
             false,
@@ -173,7 +173,7 @@ WebAssembly.instantiateStreaming(fetch("doom.wasm"), importObject).then(
         canvas.addEventListener(
             "keyup",
             (event) => {
-                keyUp(doomKeyCode)
+                keyUp(doomKeyCode(event))
                 event.preventDefault()
             },
             false,
