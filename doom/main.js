@@ -26,7 +26,7 @@ function appendOutput(style) {
             t.appendChild(document.createTextNode(lines[i]));
             output.appendChild(t);
             output.appendChild(document.createElement("br"));
-            t.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"}); /*smooth scrolling is experimental according to MDN*/
+            //t.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"}); /*smooth scrolling is experimental according to MDN*/
         }
     }
 }
