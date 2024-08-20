@@ -165,7 +165,7 @@ WebAssembly.instantiateStreaming(fetch("doom.wasm"), importObject).then(
         canvas.addEventListener(
             "keydown",
             (event) => {
-                keyDown(doomKeyCode)
+                keyDown(doomKeyCode(event))
                 event.preventDefault()
             },
             false,
@@ -173,7 +173,7 @@ WebAssembly.instantiateStreaming(fetch("doom.wasm"), importObject).then(
         canvas.addEventListener(
             "keyup",
             (event) => {
-                keyUp(doomKeyCode)
+                keyUp(doomKeyCode(event))
                 event.preventDefault()
             },
             false,
