@@ -119,7 +119,7 @@ WebAssembly.instantiateStreaming(fetch("doom.wasm"), importObject).then(
         /*input handling*/
         const doomKeyCode = (event) => {
             switch (event.key.toLowerCase()) {
-                case "e":
+                case "w":
                     return KEYS.ARROW_UP
                 case "a":
                     return KEYS.ARROW_LEFT
