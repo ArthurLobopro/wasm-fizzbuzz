@@ -129,7 +129,9 @@ WebAssembly.instantiateStreaming(fetch("doom.wasm"), importObject).then(
                     return KEYS.ARROW_DOWN
             }
 
-            switch (event.keyCode) {
+            const { keyCode } = event
+
+            switch (keyCode) {
                 case 8:
                     return 127 // KEY_BACKSPACE
                 case 17:
@@ -154,6 +156,7 @@ WebAssembly.instantiateStreaming(fetch("doom.wasm"), importObject).then(
                     return keyCode
             }
         }
+
         const keyDown = (keyCode) => {
             obj.instance.exports.add_browser_event(0 /*KeyDown*/, keyCode)
         }
