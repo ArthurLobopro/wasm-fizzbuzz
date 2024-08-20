@@ -17,6 +17,9 @@ function consoleLogString(offset, length) {
 function appendOutput(style) {
     return function(offset, length) {
         const lines = readWasmString(offset, length).split('\n');
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        
         for (var i=0; i<lines.length; ++i) {
             if (lines[i].length == 0) {
                 continue;
@@ -28,6 +31,12 @@ function appendOutput(style) {
             output.appendChild(document.createElement("br"));
             //t.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"}); /*smooth scrolling is experimental according to MDN*/
         }
+
+        window.scrollTo({
+  top: scrollTop,
+  left: scrollLeft,
+  behavior: 'auto' // 'auto' ou 'smooth' dependendo do efeito desejado
+});
     }
 }
 
